@@ -3,11 +3,17 @@
 
 static uint8_t buffer[OLED_BUFFER_SIZE];
 
+const uint8_t font5x7[][5] = {
+    {0x00,0x00,0x00,0x00,0x00}, // space
+    {0x7C,0x12,0x11,0x12,0x7C}, // A
+    {0x7F,0x49,0x49,0x49,0x36}, // B
+};
+
 static void ssd1306_command(uint8_t cmd)
 {
     i2c_start();
     i2c_write(SSD1306_ADDR << 1);
-    i2c_write(0x00); // command
+    i2c_write(0x00);
     i2c_write(cmd);
     i2c_stop();
 }
@@ -68,4 +74,21 @@ void ssd1306_pixel(uint8_t x, uint8_t y, uint8_t color)
         buffer[index] |= (1 << (y % 8));
     else
         buffer[index] &= ~(1 << (y % 8));
+}
+
+void ssd1306_draw_char(uint8_t x, uint8_t y, char c)
+{
+    uint8_t index;
+
+    if (c == ' ') index = 0;
+    else if (c == 'A') index = 1;
+    else if (c == 'B') index = 2;
+    else return;
+
+    for (uint8_t i = 0; i < 5; i++) {
+        uint8_t line = font5x7[index][i];
+        for (uint8_t j = 0; j < 8; j++) {
+            ssd1306_pixel(x + i, y + j, line & (1 << j));
+        }
+    }
 }

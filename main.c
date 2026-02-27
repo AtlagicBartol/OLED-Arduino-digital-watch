@@ -8,8 +8,8 @@ int main(void)
     ssd1306_init();
     ssd1306_clear();
 
-    for (uint8_t i = 0; i < 20; i++)
-        ssd1306_pixel(10 + i, 10, 1);
+    ssd1306_draw_char(10,10, 'A');
+    ssd1306_draw_char(17,10, 'B');
 
     ssd1306_update();
 

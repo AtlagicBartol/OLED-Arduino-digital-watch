@@ -13,4 +13,6 @@ void ssd1306_clear(void);
 void ssd1306_update(void);
 void ssd1306_pixel(uint8_t x, uint8_t y, uint8_t color);
 
+extern const uint8_t font5x7[][5];
+
 #endif
