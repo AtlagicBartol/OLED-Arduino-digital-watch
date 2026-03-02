@@ -129,3 +129,10 @@ void ssd1306_draw_char(uint8_t x, uint8_t y, char c)
         }
     }
 }
+
+void ssd1306_draw_string(uint8_t x, uint8_t y,char *word){
+    uint8_t i = 0;
+    for(i; word[i] != '\0'; i++){
+        ssd1306_draw_char(x + i * 7, y, word[i]);
+    }
+}
