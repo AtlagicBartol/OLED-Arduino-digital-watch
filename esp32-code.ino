@@ -3,29 +3,40 @@
 
 #include "display.h"
 #include "heartrate.h"
+#include "weather.h"
 
 #define SDA_PIN 21
 #define SCL_PIN 22
+
+
+unsigned long lastDisplay = 0;
 
 void setup()
 {
     Serial.begin(115200);
 
     Wire.begin(SDA_PIN, SCL_PIN);
+    wifi_connect();
 
     display_init();
-    heartrate_init();
+    //heartrate_init();
 
     display_show_text("Starting...");
 }
 
 void loop()
 {
-    int hr = heartrate_read();
+    //int hr = heartrate_read();
 
-    Serial.println(hr);
+    if(millis() - lastDisplay >= 1000){
+        lastDisplay = millis();
+        updateTime();
+        displayTime();
+    }
 
-    display_show_hr(hr);
+    //Serial.println(hr);
+
+    //display_show_hr(hr);
 
     delay(1000);
 }
