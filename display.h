@@ -25,7 +25,6 @@ struct Datetime{
 extern Datetime datetime;
 
 void display_init();
-void display_show_text(const char* text);
 void display_show_hr(int hr);
 void displayTime();
 void updateTime();

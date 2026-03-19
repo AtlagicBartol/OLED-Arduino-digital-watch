@@ -2,6 +2,8 @@
 #define WEATHER_H
 
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <Arduino.h>
 
 struct WifiInfo{
   char* ssid;
@@ -22,7 +24,6 @@ struct WeatherInfo{
 extern WifiInfo wifiInfo;
 extern ApiInfo apiInfo;
 extern WeatherInfo weatherInfo;
-
 
 void wifiConnect();
 void fetchWeather();

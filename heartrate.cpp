@@ -31,7 +31,7 @@ uint32_t readIR()
         value |= Wire.read();
         value <<= 8;
         value |= Wire.read();
-        }
+    }
 
     value &= 0x03FFFF;
 

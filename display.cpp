@@ -11,15 +11,6 @@ void display_init()
     display.setTextColor(WHITE);
 }
 
-void display_show_text(const char* text)
-{
-    display.clearDisplay();
-    display.setTextSize(1);
-    display.setCursor(0,0);
-    display.println(text);
-    display.display();
-}
-
 void display_show_hr(int hr)
 {
     display.clearDisplay();
