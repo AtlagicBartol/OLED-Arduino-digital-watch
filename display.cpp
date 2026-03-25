@@ -2,7 +2,6 @@
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire);
 
-Datetime datetime = {17,14, 58,18,3,2026};
 
 void display_init()
 {
@@ -27,7 +26,7 @@ void display_show_hr(int hr)
     display.display();
 }
 
-void displayTime(){
+void displayTime(DateTime datetime){
     display.clearDisplay();
 
     display.setTextSize(1);
@@ -40,31 +39,13 @@ void displayTime(){
 
     display.setTextSize(2);
     display.setCursor(16, 24);
-    display2digits(datetime.hour);
+    display2digits(datetime.hours);
     display.print(":");
     display2digits(datetime.minutes);
     display.print(":");
     display2digits(datetime.seconds);
 
     display.display();
-}
-
-void updateTime(){
-    datetime.seconds++;
-
-    if(datetime.seconds >= 60){
-        datetime.seconds = 0;
-        datetime.minutes++;
-    }
-    if(datetime.minutes >= 60){
-        datetime.minutes = 0;
-        datetime.hour++;
-    }
-    if(datetime.hour >= 24){
-        datetime.hour = 0;
-        datetime.day++;
-    }
-
 }
 
 void display2digits(uint8_t value){
