@@ -41,7 +41,7 @@ void rtc_set(DateTime* dt)
     Wire.write(decToBcd(dt->seconds));
     Wire.write(decToBcd(dt->minutes));
     Wire.write(decToBcd(dt->hours));
-    Wire.write(0); // day of week
+    Wire.write(0); // Postavaljas dan (pon itd.)
     Wire.write(decToBcd(dt->day));
     Wire.write(decToBcd(dt->month));
     Wire.write(decToBcd(dt->year - 2000));
