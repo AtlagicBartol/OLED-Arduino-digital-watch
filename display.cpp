@@ -10,22 +10,6 @@ void display_init()
     display.setTextColor(WHITE);
 }
 
-void display_show_hr(int hr)
-{
-    display.clearDisplay();
-
-    display.setTextSize(1);
-    display.setCursor(0,0);
-    display.println("Heart Rate");
-
-    display.setTextSize(3);
-    display.setCursor(0,30);
-    display.print(hr);
-    display.println(" BPM");
-
-    display.display();
-}
-
 void displayTime(DateTime datetime){
     display.clearDisplay();
 

@@ -8,6 +8,7 @@
 #include "weatherDisplay.h"
 #include "rtc.h"
 #include "mpu6050.h"
+#include "HealthDisplay.h"
 
 #define SDA_PIN 21
 #define SCL_PIN 22
@@ -63,7 +64,7 @@ void loop()
 {
     rtc_read(&now);
     if(now.seconds % 10 >= 5){
-        displayWeather();
+        displaySteps();
     }
     else{
         displayTime(now);

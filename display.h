@@ -14,7 +14,6 @@
 extern Adafruit_SSD1306 display;
 
 void display_init();
-void display_show_hr(int hr);
 void displayTime(DateTime datetime);
 void updateTime();
 void display2digits(uint8_t value);
