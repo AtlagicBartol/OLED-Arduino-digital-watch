@@ -2,8 +2,8 @@
 /*
 DODAJ FUNKCIONALNOST DA UKOLIKO NEMA INTERNETA PREKO TOG SSID DA PRELAZI NA DRUGI SSID
 */
-WifiInfo wifiInfo = {"Extender", "m63F4B5dnn"};
-ApiInfo apiInfo = {"cc815ce3b0ea75b779e8377a62fbf334", "Osijek", "metric"};
+WifiInfo wifiInfo = {"****", "*****"};
+ApiInfo apiInfo = {"******", "Osijek", "metric"};
 WeatherInfo weatherInfo = {"Clear", "0"};
 
 void wifiConnect(){
